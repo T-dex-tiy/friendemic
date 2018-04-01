@@ -2,3 +2,18 @@ body {
   display: grid;
   background-color: blue;
 }
+
+.App {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.userlist {
+  display: grid;
+  grid-template-rows: repeat(10, 100px);
+  // grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  border: 1px solid black;
+}
+.items {
+  height: 100px;
+  border: 1px solid black;
+}

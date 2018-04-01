@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import firebase, { auth } from './firebase/firebase';
 import Rebase from 're-base';
+import User from './components/user';
+import UserList from './components/Userlist';
 import './styles/app.css';
 
 const base = Rebase.createClass(firebase.database());
@@ -26,7 +28,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>test</h1>
+        <UserList />
+        <User className="user" />
       </div>
     );
   }
