@@ -1,11 +1,35 @@
 body {
   display: grid;
   background-color: blue;
+  grid-template-areas:
+    'nav'
+    'body'
+    'footer';
+  grid-template-rows: 25vh 1fr 15vh;
+}
+header {
+  display: grid;
+  background-color: darkslategrey;
+  grid-area: nav;
+  align-items: space-between;
+  justify-content: space-between;
+  grid-template-areas:
+    'login online'
+    'login online';
 }
 
 .App {
   display: grid;
+  grid-template-areas:
+    'nav'
+    'body'
+    'footer';
+  grid-template-rows: 25vh 1fr 15vh;
+}
+main {
+  display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-area: body;
 }
 .userlist {
   display: grid;
