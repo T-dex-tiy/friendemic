@@ -5,9 +5,21 @@ class User extends Component {
     super(props);
   }
   render() {
+    console.log(this.props.user);
+    const current = Object.keys(this.props.user).map(
+      key => this.props.user[key]
+    );
+
+    console.log(current);
     return (
       <div>
-        <h3>Current User</h3>
+        {Object.keys(current).map(
+          key => {
+          return(  <div>
+                <h2>{current[key].Name}</h2>
+                <h4>{current[key].uid}</h4>
+              </div>)
+            })}
       </div>
     );
   }

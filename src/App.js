@@ -5,7 +5,6 @@ import Rebase from 're-base';
 import LogIn from './components/login';
 import User from './components/user';
 import UserList from './components/Userlist';
-import Online from './components/online';
 import './styles/app.css';
 
 const base = Rebase.createClass(firebase.database());
@@ -66,17 +65,25 @@ class App extends Component {
   }
 
   render() {
-    const localMachine = Object.keys(this.state.User).filter(key => {
-      if (this.state.uid === this.state.User[key].uid) {
-        return this.state.User[key];
-      }
-    });
+    const localMachine = Object.keys(this.state.User).map(
+      key => this.state.User[key]
+    );
     let userList;
     if (this.state.User == null) {
-      userList = <div>Please Log in</div>;
+      userList = <p>Please Log in</p>;
     } else {
       userList = <UserList User={this.state.User} />;
     }
+
+    let localUser;
+    if (this.state.User == null) {
+      localUser = <div>Log in to select status</div>;
+    } else {
+      localUser = <User user={this.state.User} uid={this.state.uid}/>
+      };
+      console.log(localUser,userList);
+      ;
+
     return (
       <div className="App">
         <header>
@@ -87,12 +94,11 @@ class App extends Component {
             renderLogin={this.renderLogin.bind(this)}
             logOut={this.logOut.bind(this)}
           />
-          <Online className="online" localMachine={localMachine} />
         </header>
 
         <main>
           {userList}
-          <User className="user" />
+          {localUser}
         </main>
       </div>
     );

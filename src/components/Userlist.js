@@ -9,9 +9,6 @@ class UserList extends Component {
       key => this.props.User[key]
     );
     const renderedList = Object.keys(fullList).map(key => fullList[key]);
-    const statusName = Object.keys(fullList).map(key => {
-      return fullList[key].available ? 'listIems online' : 'listItems offline';
-    });
 
     return (
       <div className="listItems">
@@ -25,7 +22,9 @@ class UserList extends Component {
               }
             >
               <h2>{renderedList[key].Name}</h2>
-              <h4>{renderedList[key].location}</h4>
+              <h4>
+                {renderedList[key].location},{renderedList[key].country}
+              </h4>
               <h4>{renderedList[key].email}</h4>
             </div>
           );
