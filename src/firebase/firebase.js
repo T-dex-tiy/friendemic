@@ -4,7 +4,7 @@ const config = {
   apiKey: 'AIzaSyBUpkY0faIbyZhNTdmJOz9HvjTiypubJfI',
   authDomain: 'friendemic-b8feb.firebaseapp.com',
   databaseURL: 'https://friendemic-b8feb.firebaseio.com',
-  messagingSenderId: '59242295541'
+  storageBucket: 'friendemic-b8feb.appspot.com'
 };
 
 firebase.initializeApp(config);

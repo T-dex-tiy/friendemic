@@ -5,18 +5,24 @@ class UserList extends Component {
     super(props);
   }
   render() {
+    const fullList = Object.keys(this.props.User).map(
+      key => this.props.User[key]
+    );
+    const renderedList = Object.keys(fullList).map(key => {
+      return fullList[key];
+    });
     return (
       <div className="userlist">
-        <div className="items">1</div>
-        <div className="items">2</div>
-        <div className="items">3</div>
-        <div className="items">4</div>
-        <div className="items">5</div>
-        <div className="items">6</div>
-        <div className="items">7</div>
-        <div className="items">8</div>
-        <div className="items">9</div>
-        <div className="items">10</div>
+        {Object.keys(renderedList).map(key => {
+          return (
+            <div>
+              <h2>{renderedList[key].Name}</h2>
+              <h4>{renderedList[key].available}</h4>
+              <h4>{renderedList[key].location}</h4>
+              <h4>{renderedList[key].email}</h4>
+            </div>
+          );
+        })}
       </div>
     );
   }

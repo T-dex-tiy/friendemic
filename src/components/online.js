@@ -5,9 +5,15 @@ class Online extends Component {
     super(props);
   }
   render() {
+    const available = Object.keys(this.props.localMachine).map(key => {
+      if (this.props.localMachine[key] != null) {
+        return this.props.localMachine[key].available;
+      }
+    });
+    console.log(available);
     return (
       <div>
-        <h3>Are they online?</h3>
+        <input type="checkbox" checked={available} />
       </div>
     );
   }

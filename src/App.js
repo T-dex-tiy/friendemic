@@ -38,7 +38,7 @@ class App extends Component {
         this.setState({ uid: snapshot.uid });
         localStorage.setItem('email', snapshot.email);
         localStorage.setItem('uid', snapshot.uid);
-        base.syncState('User', {
+        base.syncState('Users', {
           context: this,
           state: 'User'
         });
@@ -64,8 +64,19 @@ class App extends Component {
     localStorage.removeItem('email');
     localStorage.removeItem('uid');
   }
+
   render() {
-    console.log(this.state);
+    const localMachine = Object.keys(this.state.User).filter(key => {
+      if (this.state.uid === this.state.User[key].uid) {
+        return this.state.User[key];
+      }
+    });
+    let userList;
+    if (this.state.User == null) {
+      userList = <div>Please Log in</div>;
+    } else {
+      userList = <UserList User={this.state.User} />;
+    }
     return (
       <div className="App">
         <header>
@@ -76,11 +87,11 @@ class App extends Component {
             renderLogin={this.renderLogin.bind(this)}
             logOut={this.logOut.bind(this)}
           />
-          <Online className="online" />
+          <Online className="online" localMachine={localMachine} />
         </header>
 
         <main>
-          <UserList />
+          {userList}
           <User className="user" />
         </main>
       </div>
