@@ -27,6 +27,18 @@ main {
   grid-template-rows: repeat(10, 100px);
   border: 1px solid black; }
 
+.listItems {
+  border: 1px solid black;
+  height: auto;
+  padding: 1px;
+  margin: 10px; }
+
+.online {
+  background: green; }
+
+.offline {
+  background: red; }
+
 .items {
   height: 100px;
   border: 1px solid black; }
