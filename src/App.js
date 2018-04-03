@@ -81,8 +81,6 @@ class App extends Component {
     } else {
       localUser = <User user={this.state.User} uid={this.state.uid}/>
       };
-      console.log(localUser,userList);
-      ;
 
     return (
       <div className="App">

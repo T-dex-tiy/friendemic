@@ -5,21 +5,21 @@ class User extends Component {
     super(props);
   }
   render() {
-    console.log(this.props.user);
-    const current = Object.keys(this.props.user).map(
-      key => this.props.user[key]
+    let currentUser={}
+    const current = Object.keys(this.props.user).filter(
+      key => {
+        console.log(key, "key");
+        if(this.props.user[key].uid == this.props.uid){
+          currentUser = this.props.user[key]
+          return currentUser
+        }
+    }
     );
 
-    console.log(current);
+    console.log(currentUser);
     return (
       <div>
-        {Object.keys(current).map(
-          key => {
-          return(  <div>
-                <h2>{current[key].Name}</h2>
-                <h4>{current[key].uid}</h4>
-              </div>)
-            })}
+        <h4>{currentUser.Name}</h4>
       </div>
     );
   }
