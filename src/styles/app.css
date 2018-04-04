@@ -1,6 +1,5 @@
 body {
   display: grid;
-  background-color: blue;
   grid-template-areas: 'nav' 'body' 'footer';
   grid-template-rows: 25vh 1fr 15vh; }
 

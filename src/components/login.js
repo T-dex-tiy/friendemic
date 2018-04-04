@@ -7,7 +7,7 @@ class LogIn extends Component {
   constructor(props) {
     super(props);
     this.logInfo = this.logInfo.bind(this);
-    this.pageLogout = this.pageLogout.bind(this);
+    // this.pageLogout = this.pageLogout.bind(this);
   }
 
   logInfo() {
@@ -15,21 +15,22 @@ class LogIn extends Component {
     const email = this.refs.email.value;
     const userdata = { email, pass };
     this.props.renderLogin(userdata);
-    console.log(this.props.user, this.props.uid);
+    console.log(this.props.user);
   }
 
-  pageLogout() {
-    console.log('signed out!');
-    const email = null;
-    const uid = null;
-    const userData = { email, uid };
-    this.props.logOut(userData);
-    firebase.auth().signOut();
-    localStorage.removeItem('email');
-    localStorage.removeItem('uid');
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('id_token');
-  }
+
+  // pageLogout() {
+  //   console.log('signed out!');
+  //   const email = null;
+  //   const uid = null;
+  //   const userData = { email, uid };
+  //   this.props.logOut(userData);
+  //   firebase.auth().signOut();
+  //   localStorage.removeItem('email');
+  //   localStorage.removeItem('uid');
+  //   localStorage.removeItem('access_token');
+  //   localStorage.removeItem('id_token');
+  // }
 
   render() {
     if (this.props.localUser === null) {
@@ -59,9 +60,9 @@ class LogIn extends Component {
     } else {
       return (
         <div>
-          Welcome back {this.props.localUser}
+          Welcome back
           <div>
-            <button onClick={() => this.pageLogout()}>Log Out</button>
+
           </div>
         </div>
       );
